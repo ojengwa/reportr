@@ -1,0 +1,15 @@
+# deployment:
+#   staging:
+#     branch: master
+#     heroku:
+#       appname: andela-reportr
+
+machine:
+  environment:
+    DJANGO_SETTINGS_MODULE: core.settings.test
+    SECRET_KEY: 'b$4f=e=haq99&5immn)&36eop@kxgj5b7jtc@zer^nnfde82s1'
+    DEBUG: True
+
+dependencies:
+  override:
+    - pip install -r requirements/test.txt
