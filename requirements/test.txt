@@ -1,0 +1,2 @@
+-r common.txt
+factory-boy==2.4.1

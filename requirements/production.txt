@@ -1,0 +1,2 @@
+-r common.txt
+whitenoise==1.0.6

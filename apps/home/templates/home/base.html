@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Andela: Reportr</title>
+    {% load staticfiles %}
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" href={% static "images/favicon/logo.png" %}/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content={% static "images/favicon/logo.png" %}/>
+    <link rel="icon" href={% static "images/favicon/logo.png" %} sizes="32x32"/>
+    <!--  Android 5 Chrome Color -->
+    <meta name="theme-color" content="#EE6E73"/>
+    <base href="/">
+    <!-- CSS  -->
+    <link href={% static "css/prism.css" %} rel="stylesheet"/>
+    <link href={% static "css/materialize.css" %} type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css"/>
+    <!-- Placed the Angular script in the header -->
+    <script src={% static "scripts/angular/angular.min.js" %}></script>
+  </head>
+  <body >
+
+    <nav id="front-page-nav">
+      <div class="container">
+        <div class="nav-wrapper"><a id="logo-container" href="http://andela.co/" class="brand-logo">
+            <img id="front-page-logo" src={% static "images/logo2.png" %} /></a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href={% url 'index' %}>Home</a></li>
+            <li><a href={% url 'about' %}>About</a></li>
+            <li><a onclick="toast('The API docs is under development.', 2000)">API</a></li>
+            <li><a href={% url 'login' %}>Login</a></li>
+          </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+    <!-- Code for page injection goes here -->
+   {% block content %}
+
+   {% endblock content %}
+    <!-- END Code for page injection -->
+
+  <div id="footer" class="section">
+    <div class="footer-block">
+      <iframe src="http://ghbtns.com/github-btn.html?user=andela-bojengwa&repo=reportr&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+    </div>
+    <div class="footer-block">
+      <a href="https://twitter.com/ojengwa_" class="twitter-follow-button" data-show-count="true" data-size="large" data-dnt="true">Follow @ojengwa_</a>
+    </div>
+    <div class="footer-block">
+      <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://google.com/+BernardOjengwa" data-rel="publisher"></div>
+    </div>
+    <div class="footer-block">
+      <a href="https://github.com/andela-bojengwa/reportr/blob/master/LICENSE" target="_blank">MIT License</a>
+    </div>
+    </div>
+
+
+
+    <!--  Scripts-->
+    <script src={% static "scripts/jquery-2.1.1.min.js" %}></script>
+    <script src={% static "scripts/jquery.timeago.js" %}></script>
+    <script src={% static "scripts/prism.js" %}></script>
+    <script src={% static "scripts/materialize.js" %}></script>
+    <script src={% static "scripts/angular-route/angular-route.js" %}></script>
+    <script src={% static "./app.js" %}></script>
+    <script src={% static "scripts/init.js" %}></script>
+
+
+
+    <!-- Twitter Button -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <!-- Google Plus Button-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </body>
+</html>

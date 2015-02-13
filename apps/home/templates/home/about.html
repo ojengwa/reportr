@@ -1,0 +1,66 @@
+{% extends "home/base.html" %}
+{% block content %}
+  <div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m9">
+        <h1 class="header center-on-small-only">Reportr</h1>
+        <h4 class ="light red-text lighten-4 center-on-small-only">What, Why, Who</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!--  Outer row  -->
+  <div class="row">
+
+    <div class="col hide-on-small-only m3 l2">
+      <div style="height: 1px;">
+        <ul class="section table-of-contents">
+          <li><a href="#what ">what</a></li>
+          <li><a href="#why">why</a></li>
+          <li><a href="#who">who</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col s12 m9 l10">
+      <div id="what" class="section scrollspy">
+        <h2 class="header">What: </h2>
+        <p class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam fugiat, numquam ipsa expedita repellat explicabo accusamus exercitationem dolores! Quidem non corporis a accusantium similique porro autem fugit quibusdam incidunt reprehenderit?</p>
+      </div>
+
+      <div id="why" class="section scrollspy">
+        <div class="row">
+          <h2 class="header">Why: </h2>
+          <h3>Because I am lazy, duh!</h3>
+          <p class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, temporibus asperiores maiores, officia optio ea et quod veritatis, officiis ut facilis qui praesentium earum. In dolore fuga suscipit ab maiores.</p>
+        </div>
+        <br />
+      </div>
+
+      <div id="who" class="section scrollspy">
+        <div class="row">
+          <h2 class="header">Who: </h2>
+          <p class="caption"><a href="http://ng.linkedin.com/in/ojengwa/" target="_blank">Bernard</a> + <a href="http://ng.linkedin.com/pub/judith-okonkwo/1/b7/524" target="_blank">Judith</a>. Feel free to <code>#fork</code> and improve this project... </p>
+        </div>
+        <br />
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="github-commit">
+<div class="container">
+  <div class="commit">
+    Latest Commit on Github:
+    &nbsp;&nbsp;
+    <a href="" class="sha"></a>
+    &nbsp;&nbsp;
+    <span class="date"></span>
+    <a id="github-button" href="https://github.com/andela-bojengwa/reportr" class="btn-flat right grey-text lighten-5 waves-effect waves-light hide-on-med-and-down">Github</a>
+  </div>
+</div>
+</div>
+{% endblock content %}

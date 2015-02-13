@@ -1,0 +1,33 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<div>
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <h1 class="header center-on-small-only">Reportr</h1>
+    <div class='row center'>
+      <h4 class ="header col s12 light center">...a web-based tool that helps you stay connected with your co-workers,
+              projects and improve team communication across board!</h4>
+    </div>
+    <div class="row center">
+      <a href="" id="download-button" class="btn-large waves-effect waves-light" ng-click="showSignup()" ng-show="states.authBtns">Signup</a>
+
+    <br>
+</div>
+</div>
+<div class="github-commit">
+<div class="container">
+  <div class="commit">
+    Latest Commit on Github:
+    &nbsp;&nbsp;
+    <a href="" class="sha"></a>
+    &nbsp;&nbsp;
+    <span class="date"></span>
+    <a id="github-button" href="https://github.com/andela-bojengwa/reportr" class="btn-flat right grey-text lighten-5 waves-effect waves-light hide-on-med-and-down">Github</a>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+{% endblock content %}

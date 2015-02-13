@@ -1,0 +1,28 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+
+<div class="row center" ng-show="states.showCard">
+<h5>User Login</h5>
+<div ng-show="states.showLoginForm">
+  <form name="login" class="col card offset-s4 s4">
+    <div class="row">
+      <div class="input-field">
+        <input id="username" type="text" name="username" required placeholder="Username:">
+      </div>
+      <div class="input-field">
+        <input id="password" required name="password" type="password" placeholder="Password:">
+      </div>
+      <div class="input-field">
+        <button class="btn waves-effect waves-light red lighten-2" type="submit" name="action">Login
+          <i class="mdi-content-send right"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+<br>
+<br>
+<br>
+{% endblock content %}
