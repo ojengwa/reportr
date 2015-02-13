@@ -1,5 +1,5 @@
 from base import *
-
+import dj_database_url
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,5 +27,7 @@ DATABASES = {
 
     }
 }
+# DATABASES['default'] =  dj_database_url.config()
+DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

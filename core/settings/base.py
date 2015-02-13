@@ -28,9 +28,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'social.apps.django_app.default',
+    'social_auth',
 
     'apps.home',
+    'apps.users',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -44,11 +45,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.google.GoogleOpenId',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.google.GoogleOAuth',
-    'django.contrib.auth.backends.ModelBackend',
-
+  'social_auth.backends.google.GoogleOAuth2Backend',
+  'django.contrib.auth.backends.ModelBackend',
 )
 
 ROOT_URLCONF = 'core.urls'
@@ -88,3 +86,28 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+
+  'social_auth.context_processors.social_auth_by_type_backends',
+)
+
+# Login and Auths
+
+# LOGIN_REDIRECT_URL = '/welcome/'
+LOGIN_ERROR_URL = '/error/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/pad/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/welcome/'
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/confirm/'
+
+SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
+SOCIAL_AUTH_UID_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('google',)
+
+GOOGLE_OAUTH2_CLIENT_ID = '384805631182-l3qf3ui0b6tnlstjcbp78f8u279soqv8.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = 'gu124dupOKMwx6b8gSRMrFsx'

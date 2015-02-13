@@ -8,3 +8,7 @@ def index(request):
 
 def about(request):
     return render(request, 'home/about.html', locals())
+
+def login(request):
+    print request
+    return HttpResponse('Congratulation')

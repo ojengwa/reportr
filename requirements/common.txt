@@ -3,8 +3,11 @@ factory-boy==2.4.1
 oauthlib==0.7.2
 PyJWT==0.4.1
 python-openid==2.2.5
-python-social-auth==0.2.1
 requests==2.5.1
 requests-oauthlib==0.4.2
 six==1.9.0
 gunicorn==19.2.1
+redis==2.10.3
+django-redis-cache==0.13.0
+django-social-auth==0.7.28
+
