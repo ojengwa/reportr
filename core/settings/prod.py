@@ -27,7 +27,19 @@ DATABASES = {
 
     }
 }
-# DATABASES['default'] =  dj_database_url.config()
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'report',
+#         'HOST': 'localhost',
+#         'PORT': '5433',
+#         'USER': 'postgres',
+#         'PASSWORD': '[]'
+
+#     }
+# }
+DATABASES['default'] =  dj_database_url.config()
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

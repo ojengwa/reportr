@@ -29,6 +29,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'social_auth',
+    # 'debug_toolbar',
 
     'apps.home',
     'apps.users',
@@ -42,6 +43,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.middlewares.exceptions.AuthException'
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -49,11 +51,13 @@ AUTHENTICATION_BACKENDS = (
   'django.contrib.auth.backends.ModelBackend',
 )
 
+AUTH_USER_MODEL = 'users.Staff'
+
 ROOT_URLCONF = 'core.urls'
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -90,24 +94,31 @@ TEMPLATE_DIRS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
 
   'social_auth.context_processors.social_auth_by_type_backends',
+  'django.contrib.auth.context_processors.auth',
 )
 
-# Login and Auths
 
-# LOGIN_REDIRECT_URL = '/welcome/'
+LOGIN_URL = '/'
+LOGOUT_URL = LOGIN_URL
+LOGIN_REDIRECT_URL = '/welcome/'
 LOGIN_ERROR_URL = '/error/'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/pad/'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/welcome/'
-SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/confirm/'
+
 
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
-SOCIAL_AUTH_UID_LENGTH = 16
+SOCIAL_AUTH_UID_LENGTH = 255
 SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
 SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
 SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
-SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 SOCIAL_AUTH_ENABLED_BACKENDS = ('google',)
-
 GOOGLE_OAUTH2_CLIENT_ID = '384805631182-l3qf3ui0b6tnlstjcbp78f8u279soqv8.apps.googleusercontent.com'
 GOOGLE_OAUTH2_CLIENT_SECRET = 'gu124dupOKMwx6b8gSRMrFsx'
+
+GOOGLE_WHITE_LISTED_DOMAINS = ['andela.co']
+# GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'access_type': 'offline'}
+
+
+# goole testing
+TEST_GOOGLE_USER = 'bernardojengwa@gmail.com'
+TEST_GOOGLE_PASSWORD = 'okpanku00.,'

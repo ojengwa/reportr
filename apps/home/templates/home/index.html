@@ -10,9 +10,12 @@
               projects and improve team communication across board!</h4>
     </div>
     <div class="row center">
-      <a href="{% url 'socialauth_begin' 'google-oauth2' %}" id="download-button" class="btn-large waves-effect waves-light">Signin</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'profile' username=user.username %}" id="download-button" class="btn-large waves-effect waves-light">Dashboard <i class='mdi-content-send right'></i></a>
 
-    <br>
+    {% else %}
+      <a href="{% url 'socialauth_begin' 'google-oauth2' %}" id="download-button" class="btn-large waves-effect waves-light">Signin</a>
+    {% endif %}
 </div>
 </div>
 <div class="github-commit">
@@ -28,6 +31,5 @@
 </div>
 </div>
 </div>
-
 </div>
 {% endblock content %}
