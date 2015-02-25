@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Parallax Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <header class='navbar-fixed'>
+  <nav class="white navbar-fixed" id="front-page-nav " role="navigation">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a id="logo-container" href="#" class="brand-logo"><img src="images/logo2.png" id="front-page-logo" alt="Andela Logo"></a>
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Questions</a></li>
+          <li class="divider"></li>
+          <li><a href="#!">Logout</a></li>
+        </ul>
+        <ul id="dropdown2" class="dropdown-content">
+          <li class="divider"></li>
+          <li><a href="#!">Edit</a></li>
+        </ul>
+        <ul class="right">
+          <li>
+            <a class="mdi-communication-email red-text hide-on-small-only text-lighten-2" href="#!">12</a>
+          </li>
+          <li>
+            <a class="mdi-action-account-circle red-text hide-on-small-only text-lighten-2 dropdown-button" href="#!" data-activates="dropdown1">Bernard<i class="mdi-navigation-arrow-drop-down right"></i>
+            </a>
+          </li>
+        </ul>
+        <ul id="nav-mobile" class="right side-nav">
+          <li><a href="#" disabled><h4>Menu</h4></a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Questions</a></li>
+          <li class="divider"></li>
+          <li><a href="#!">Logout</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </div>
+  </nav>
+  </header>
+    {% block content %}
+
+    {% endblock content %}
+  <footer class="page-footer red center-align lighten-2">
+    <div class="footer-copyright">
+      <div class="container">
+      Made with &#x2665; by <a href="http://twitter.com/" style="color:#ddd">Judith</a> and <a style="color:#ddd" href="http://twitter.com/ojengwa_">Bernard</a>.
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="js/jquery.js"></script>
+    <script src="js/jquery.timeago.min.js"></script>
+  <script src="js/materialize.js"></script>
+    <script src="js/prism.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+  $(document).ready(function() {
+    $(".dropdown-button").dropdown();
+    $('.collapsible').collapsible({
+      accordion : true
+    });
+  });
+  </script>
+  </body>
+</html>

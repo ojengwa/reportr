@@ -29,7 +29,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'social_auth',
-    # 'debug_toolbar',
+    'djangular',
+    'rest_framework',
 
     'apps.home',
     'apps.users',
@@ -46,6 +47,12 @@ MIDDLEWARE_CLASSES = (
     'core.middlewares.exceptions.AuthException'
 )
 
+STATICFILES_FINDERS = (
+  'django.contrib.staticfiles.finders.FileSystemFinder',
+  'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+  'djangular.finders.NamespacedAngularAppDirectoriesFinder'
+)
+
 AUTHENTICATION_BACKENDS = (
   'social_auth.backends.google.GoogleOAuth2Backend',
   'django.contrib.auth.backends.ModelBackend',
@@ -58,12 +65,13 @@ ROOT_URLCONF = 'core.urls'
 WSGI_APPLICATION = 'core.wsgi.application'
 
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Lagos'
 
 USE_I18N = True
 
@@ -91,6 +99,8 @@ TEMPLATE_DIRS = (
 
 )
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 TEMPLATE_CONTEXT_PROCESSORS = (
 
   'social_auth.context_processors.social_auth_by_type_backends',
@@ -100,7 +110,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 LOGIN_URL = '/'
 LOGOUT_URL = LOGIN_URL
-LOGIN_REDIRECT_URL = '/welcome/'
+LOGIN_REDIRECT_URL = '/home/'
 LOGIN_ERROR_URL = '/error/'
 
 
@@ -122,3 +132,12 @@ GOOGLE_WHITE_LISTED_DOMAINS = ['andela.co']
 # goole testing
 TEST_GOOGLE_USER = 'bernardojengwa@gmail.com'
 TEST_GOOGLE_PASSWORD = 'okpanku00.,'
+
+# RESFTUL API SETTINGS
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

@@ -12,8 +12,7 @@ def about(request):
     return render(request, 'home/about.html', locals())
 
 def login(request):
-    print request.user
-    return HttpResponse('Logged in')
+    return render(request, 'home/login.html', locals())
 
 @login_required
 def success(request):

@@ -7,5 +7,5 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
     url(r'^profile/(?P<username>[^/]+)$', views.profile, name='profile'),
-    url(r'^welcome/$', views.success, name='success'),
+    url(r'^home/$', views.success, name='success'),
 )

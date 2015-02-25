@@ -16,30 +16,6 @@ TEMPLATE_DEBUG = False
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'daunf5c2gptfk6',
-        'HOST': 'ec2-54-163-254-93.compute-1.amazonaws.com',
-        'PORT': '5432',
-        'USER': 'czobkezvkrqxyv',
-        'PASSWORD': 'NK14qq1lMt9Mxm0K3Tns4NvO7D'
 
-    }
-}
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'report',
-#         'HOST': 'localhost',
-#         'PORT': '5433',
-#         'USER': 'postgres',
-#         'PASSWORD': '[]'
-
-#     }
-# }
-# DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config()
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

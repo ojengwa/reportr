@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def profile(request, username):
     return HttpResponse('Welcome, ' + username)
-    # return render(request, 'home/index.html', locals())
+    # return render(request, 'users/index.html', locals())
 
 
 def dashboard(request):
@@ -17,4 +17,4 @@ def dashboard(request):
 @login_required
 def success(request):
     print request.user
-    return HttpResponse('success!')
+    return render(request, 'users/index.html', locals())

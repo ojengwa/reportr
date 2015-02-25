@@ -2,4 +2,3 @@
 whitenoise==1.0.6
 psycopg2==2.6
 dj-database-url==0.3.0
-django-postgrespool==0.3.0
