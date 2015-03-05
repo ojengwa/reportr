@@ -4,8 +4,10 @@ from apps.users.models import Staff
 # Create your models here.
 class Report(models.Model):
 
-    title = models.CharField(max_length=255)
     content = models.TextField()
+    challenges = models.TextField(default='loremsjhsfb jhsb jsfbjhfdbjhfbhjb ')
+    achievements = models.TextField(default='loremsjhsfb jhsb jsfbjhfdbjhfbhjb ')
+    plans = models.TextField(default='loremsjhsfb jhsb jsfbjhfdbjhfbhjb ')
     creator = models.ForeignKey(Staff, related_name='reports')
 
     class Meta:
@@ -37,3 +39,11 @@ class Comment(models.Model):
         verbose_name = "Comment"
         verbose_name_plural = "Comments"
 
+
+class Tag(models.Model):
+
+    word = models.CharField(max_length=30)
+
+    class Meta:
+        verbose_name = "Tag"
+        verbose_name_plural = "Tags"

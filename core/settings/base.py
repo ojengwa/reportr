@@ -31,9 +31,13 @@ INSTALLED_APPS = (
     'social_auth',
     'djangular',
     'rest_framework',
+    'django_nvd3',
+    'djangobower',
 
     'apps.home',
     'apps.users',
+    'apps.report',
+    'resource',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,7 +54,8 @@ MIDDLEWARE_CLASSES = (
 STATICFILES_FINDERS = (
   'django.contrib.staticfiles.finders.FileSystemFinder',
   'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-  'djangular.finders.NamespacedAngularAppDirectoriesFinder'
+  'djangular.finders.NamespacedAngularAppDirectoriesFinder',
+  'djangobower.finders.BowerFinder',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -89,7 +94,7 @@ STATIC_URL = STATIC_HOST + '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_ROOT = 'static'
+# STATIC_ROOT = 'static'
 
 # TEMPLATES DIRECTORY
 
@@ -108,9 +113,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 
-LOGIN_URL = '/'
-LOGOUT_URL = LOGIN_URL
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_URL = '/dashboard'
+LOGOUT_URL = '/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 LOGIN_ERROR_URL = '/error/'
 
 
@@ -141,3 +146,16 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+# Django-bower
+# ------------
+
+# Specifie path to components root (you need to use absolute path)
+BOWER_COMPONENTS_ROOT = os.path.join(STATIC_ROOT, 'components')
+
+BOWER_PATH = '/usr/local/bin/bower'
+
+BOWER_INSTALLED_APPS = (
+    'd3#3.3.6',
+    'nvd3#1.1.12-beta',
+)

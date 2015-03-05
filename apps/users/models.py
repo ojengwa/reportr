@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, Permission
 from django.utils.translation import ugettext, ugettext_lazy as _
 from django.utils import six, timezone
 from django.core.mail import send_mail
@@ -65,13 +65,21 @@ class StaffManager(models.Manager):
         return self._create_user(username, email, password, False, False,
                                  **extra_fields)
 
+    def get_names(self):
+        staff_members = []
+        obj = self.all()
+        for staff in obj:
+            staff_members.append("{} {}".format(staff.first_name, staff.last_name))
+        return staff_members
+
+
 
 class Staff(AbstractBaseUser, PermissionsMixin):
 
     username = models.CharField(_('username'), max_length=30, unique=True)
     first_name = models.CharField(_('first name'), max_length=45, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
-    email = models.EmailField(_('email address'), blank=True)
+    email = models.EmailField(_('email address'), unique=True)
     gender = models.CharField(max_length=16, blank=True)
     picture = models.CharField(max_length=255, blank=True)
     is_staff = models.BooleanField(_('staff status'), default=False,
@@ -108,3 +116,44 @@ class Staff(AbstractBaseUser, PermissionsMixin):
         Sends an email to this User.
         """
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+
+class Parapo(models.Model):
+
+    rant = models.TextField()
+    staff = models.ForeignKey(Staff, related_name='rants')
+
+    class Meta:
+        verbose_name = "Parapo"
+        verbose_name_plural = "Parapos"
+
+class TeamManager(models.Manager):
+    """
+    The manager for the auth's Group model.
+    """
+    use_in_migrations = True
+
+    def get_by_natural_key(self, name):
+        return self.get(name=name)
+
+
+
+class Team(models.Model):
+
+    name = models.CharField(_('name'), max_length=80, unique=True)
+    permissions = models.ManyToManyField(Permission,
+        verbose_name=_('permissions'), blank=True)
+
+    objects = TeamManager()
+
+    class Meta:
+        verbose_name = _('team')
+        verbose_name_plural = _('teams')
+
+    def __str__(self):
+        return self.name
+
+    def natural_key(self):
+        return (self.name,)
+
+

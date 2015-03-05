@@ -1,0 +1,51 @@
+{% extends "users/base.html" %}
+{% block localcss %}
+  <style type="text/css">
+    .no-box-shadow {
+      box-shadow: none;
+    }
+  </style>
+{% endblock localcss %}
+{% block content %}
+<div class="col s12 m12 l12">
+  <div class="card  lighten-4">
+    <div class="card-content black-text">
+      <div class="row  card lighten-4 no-box-shadow">
+        <div class=" col s12 m12 l12">
+          <div class="card-title row black-text text-lighten-2">
+            <div class="col s12 m4 l4 left"><h4 class="grey-text text-darken-2">Report Sheet</h4></div>
+            <div class="input-field hide-on-small-only col s12 m5 l5 right">
+              <i class="mdi-action-search prefix"></i><input id="search" placeholder='Filter Reports...' type="text">
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="card-content">
+          <div class="row">
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s3"><a href="#test1">My Reports</a></li>
+              <li class="tab col s3"><a class="active" href="#test2">Tech Team</a></li>
+              <li class="tab col s3"><a href="#test3">Other Teams</a></li>
+              <li class="tab col s3"><a href="#test4">General</a></li>
+            </ul>
+          </div>
+          <div id="test1" class="col s12">Test 1</div>
+          <div id="test2" class="col s12">Test 2</div>
+          <div id="test3" class="col s12">Test 3</div>
+          <div id="test4" class="col s12">Test 4</div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block localjs %}
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('ul.tabs').tabs();
+    });
+</script>
+{% endblock localjs %}

@@ -21,3 +21,11 @@ six==1.9.0
 SQLAlchemy==0.9.8
 sqlparse==0.1.14
 static3==0.5.1
+python-dateutil==2.4.0
+Jinja2==2.7.3
+Unidecode==0.4.17
+django-nvd3==0.7.7
+markupsafe==0.23
+python-nvd3==0.13.5
+python-slugify==0.0.9
+django-bower==5.0.2

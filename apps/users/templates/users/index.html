@@ -1,80 +1,71 @@
-{% extends "base.html" %}
-
+{% extends "users/base.html" %}
+{% block localcss %}
+  <style type="text/css">
+    .no-box-shadow {
+      box-shadow: none;
+    }
+    .linky{
+      text-transform: none;
+      color: black;
+    }
+  </style>
+{% endblock localcss %}
 {% block content %}
-   <main>
-    <div class="container">
-      <div class="row">
-        <!-- Table of Contents -->
-        <div class="col s12 m3 l3">
-          <div class="toc-wrapper">
-            <div class="card">
-              <div class="card-image hide-on-small-only waves-effect waves-block waves-light">
-                <img class="activator" src="images/g1.jpg">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text  text-darken-4">Bernard <i class="mdi-navigation-more-vert dropdown-button right" data-activates="dropdown2"></i></span>
-                <div class="card-action">
-                  <a href="#"><span data-i18n="">Dashboard</span> </a>
-                  <ul class="collapsible" data-collapsible="accordion">
-                    <li>
-                      <div class="collapsible-header"  onclick="toast('Yet to be implemented.', 2000)">GTD</div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header">People</div>
-                      <div class="collapsible-body">
-                        <ul class="center-align">
-                          <li><a href="">My teams</a></li>
-                          <li><a href="">General</a></li>
-                        </ul>
-                      </div>
-                      <div class="collapsible-body"></div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header">Reports</div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header">Reviews</div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header">Follow-ups</div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+<div class="col s12 m12 l12">
+  <div class="card grey lighten-4">
+    <div class="card-content black-text">
+      <div class="row grey card lighten-4 no-box-shadow">
+        <div class="col s12 m6 l6">
+          <span class="card-title grey-text">Freckle Tracker</span>
+          <div class="card-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
         </div>
-        <div class="col s12 m9 l9">
-          <div class="row">
-            <div class="col s12 m12 l12">
-              <div class="card grey lighten-4">
-                <div class="card-content black-text">
-                  <span class="card-title">Card Title</span>
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                  <a href='#'>This is a link</a>
-                </div>
-              </div>
-            </div>
+        <div class=" col s12 m6 l6">
+          <span class="card-title grey-text">Social Buzz</span>
+          <div class="card-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
         </div>
-        <!-- Edit Buttons -->
-        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-          <a class="btn-floating btn-large red lighten-2">
-            <i class="large mdi-editor-mode-edit"></i>
-          </a>
-          <ul>
-            <li><a class="btn-floating pink lighten-3"><i class="large mdi-action-alarm-add" onclick="toast('Yet to be implemented.', 2000)"></i></a></li>
-            <li><a class="btn-floating grey lighten-2"><i class="large mdi-content-report"></i></a></li>
-            <li><a class="btn-floating  blue-grey lighten-1"><i class="large mdi-action-assessment"></i></a></li>
-            <li><a class="btn-floating  blue-grey darken-4"><i class="large mdi-action-account-child"></i></a></li>
-          </ul>
+        <div class=" col s12 m6 l6">
+          <span class="card-title grey-text">Fellows</span>
+          <div class="card-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
         </div>
-        <!-- End Edit Button -->
+        <div class=" col s12 m6 l6">
+          <span class="card-title grey-text">OKRs</span>
+          <div class="card-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
       </div>
     </div>
-  </main>
+    <div class="card-action">
+      <a href="#">This is a link</a>
+      <a href='#'>This is a link</a>
+    </div>
+  </div>
+</div>
 {% endblock content %}
+
