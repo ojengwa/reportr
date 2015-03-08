@@ -127,6 +127,7 @@ class Parapo(models.Model):
         verbose_name = "Parapo"
         verbose_name_plural = "Parapos"
 
+
 class TeamManager(models.Manager):
     """
     The manager for the auth's Group model.
@@ -136,6 +137,13 @@ class TeamManager(models.Manager):
     def get_by_natural_key(self, name):
         return self.get(name=name)
 
+    def get_teams(self):
+        obj = self.all()
+        teams = {}
+        for team in obj:
+            teams.update({'name':team.name, 'lead':team.lead})
+
+        return teams
 
 
 class Team(models.Model):
@@ -143,6 +151,7 @@ class Team(models.Model):
     name = models.CharField(_('name'), max_length=80, unique=True)
     permissions = models.ManyToManyField(Permission,
         verbose_name=_('permissions'), blank=True)
+    lead = models.ForeignKey(Staff, related_name='crews')
 
     objects = TeamManager()
 
@@ -155,5 +164,3 @@ class Team(models.Model):
 
     def natural_key(self):
         return (self.name,)
-
-

@@ -166,7 +166,7 @@ class Freckle(object):
             project_id = entry['project']['id']
             project_name = entry['project']['name']
             user_id = entry['user_id']
-            print projects[0]
+            print projects[0], 'Function call'
             # for key, project in projects:
             #     print key, project
             # if project_id not in result[entry_date.month]:

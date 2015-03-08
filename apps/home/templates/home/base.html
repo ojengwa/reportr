@@ -30,7 +30,7 @@
             <li><a href={% url 'index' %}>Home</a></li>
             <li><a href={% url 'about' %}>About</a></li>
             <li><a onclick="toast('The API docs is under development.', 2000)">API</a></li>
-            {% if user.is_authenticated %}
+            {% if user %}
               <li><a href={% url 'socialauth_disconnect' 'google-oauth2' %}>Logout</a></li>
             {% endif %}
           </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
